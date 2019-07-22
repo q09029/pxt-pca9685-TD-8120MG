@@ -351,29 +351,29 @@ namespace PCA9685 {
         return setPinPulseRange(ledNum - 1, 0, pwm, chipAddress)
     }
 
-    function degrees180ToPWM(freq: number, degrees: number, offsetStart: number, offsetEnd: number): number {
+    function degrees270ToPWM(freq: number, degrees: number, offsetStart: number, offsetEnd: number): number {
         // Calculate the offset of the off point in the freq
         offsetEnd = calcFreqOffset(freq, offsetEnd)
         offsetStart = calcFreqOffset(freq, offsetStart)
         const spread: number = offsetEnd - offsetStart
-        const calcOffset: number = ((degrees * spread) / 180) + offsetStart
+        const calcOffset: number = ((degrees * spread) / 270) + offsetStart
         // Clamp it to the bounds
         return Math.max(offsetStart, Math.min(offsetEnd, calcOffset))
     }
 
     /**
-     * Used to move the given servo to the specified degrees (0-180) connected to the PCA9685
+     * Used to move the given servo to the specified degrees (0-270) connected to the PCA9685
      * @param chipAddress [64-125] The I2C address of your PCA9685; eg: 64
      * @param servoNum The number (1-16) of the servo to move
-     * @param degrees The degrees (0-180) to move the servo to
+     * @param degrees The degrees (0-270) to move the servo to
      */
     //% block
     export function setServoPosition(servoNum: ServoNum = 1, degrees: number, chipAddress: number = 0x40): void {
         const chip = getChipConfig(chipAddress)
         servoNum = Math.max(1, Math.min(16, servoNum))
-        degrees = Math.max(0, Math.min(180, degrees))
+        degrees = Math.max(0, Math.min(270, degrees))
         const servo: ServoConfig = chip.servos[servoNum - 1]
-        const pwm = degrees180ToPWM(chip.freq, degrees, servo.minOffset, servo.maxOffset)
+        const pwm = degrees270ToPWM(chip.freq, degrees, servo.minOffset, servo.maxOffset)
         servo.position = degrees
         debug(`setServoPosition(${servoNum}, ${degrees}, ${chipAddress})`)
         debug(`  servo.pinNumber ${servo.pinNumber}`)

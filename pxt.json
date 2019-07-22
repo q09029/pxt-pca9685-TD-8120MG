@@ -11,7 +11,8 @@
         "README.md"
     ],
     "testFiles": [
-      "tests.ts"
+        "tests.ts"
     ],
-    "public": true
+    "public": true,
+    "preferredEditor": "tsprj"
 }
