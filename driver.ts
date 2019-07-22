@@ -188,9 +188,9 @@ namespace PCA9685 {
     export const DefaultServoConfig = new ServoConfigObject();
     DefaultServoConfig.pinNumber = -1
     DefaultServoConfig.minOffset = 5
-    DefaultServoConfig.midOffset = 15
-    DefaultServoConfig.maxOffset = 25
-    DefaultServoConfig.position = 90
+    DefaultServoConfig.midOffset = 16.5
+    DefaultServoConfig.maxOffset = 28
+    DefaultServoConfig.position = 135
 
     export class ServoConfig {
         id: number;
