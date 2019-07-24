@@ -447,6 +447,7 @@ namespace PCA9685 {
      */
     //% block ="初期化 |アドレス %chipAddress |周波数 %newFreq"
     //% advanced=true
+
     export function init(chipAddress: number = 0x40, newFreq: number = 50) {
         debug(`Init chip at address ${chipAddress} to ${newFreq}Hz`)
         const buf = pins.createBuffer(2)
