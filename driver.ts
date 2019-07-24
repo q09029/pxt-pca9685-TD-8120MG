@@ -367,7 +367,7 @@ namespace PCA9685 {
      * @param servoNum The number (1-16) of the servo to move
      * @param degrees The degrees (0-270) to move the servo to
      */
-    //% block
+    //% block="サーボを動かす |番号 %ServoNum |角度 %degrees |チップアドレス %chipAddress"
     export function setServoPosition(servoNum: ServoNum = 1, degrees: number, chipAddress: number = 0x40): void {
         const chip = getChipConfig(chipAddress)
         servoNum = Math.max(1, Math.min(16, servoNum))
@@ -481,7 +481,7 @@ namespace PCA9685 {
      * Used to reset the chip, will cause the chip to do a full reset and turn off all outputs.
      * @param hexAddress The hex address to convert to decimal; eg: 0x40
      */
-    //% block
+    //% block="チップアドレス %chipAddress"
     export function chipAddress(hexAddress: string): number {
         hexAddress = stripHexPrefix(hexAddress)
         let dec = 0
