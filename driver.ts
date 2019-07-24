@@ -445,7 +445,7 @@ namespace PCA9685 {
      * @param chipAddress [64-125] The I2C address of your PCA9685; eg: 64
      * @param freq [40-1000] Frequency (40-1000) in hertz to run the clock cycle at; eg: 50
      */
-    //% block advanced=true
+    //% block ="初期化 アドレス %chipAddress 周波数 %newFreq" advanced=true
     export function init(chipAddress: number = 0x40, newFreq: number = 50) {
         debug(`Init chip at address ${chipAddress} to ${newFreq}Hz`)
         const buf = pins.createBuffer(2)
